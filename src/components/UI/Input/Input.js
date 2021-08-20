@@ -14,6 +14,17 @@ const Input = React.forwardRef((props, ref) => {
 		}
 	})
 
+	const {
+		type,
+		autocomplete,
+		id,
+		value,
+		onBlur,
+		required,
+		minLength,
+		onChange,
+	} = props
+
 	return (
 		<div
 			className={`${classes.control} ${
@@ -23,11 +34,14 @@ const Input = React.forwardRef((props, ref) => {
 			<label htmlFor={props.id}>{props.label}</label>
 			<input
 				ref={inputRef}
-				type={props.type}
-				id={props.id}
-				value={props.value}
-				onChange={props.onChange}
-				onBlur={props.onBlur}
+				type={type}
+				id={id}
+				value={value}
+				onChange={onChange}
+				onBlur={onBlur}
+				required={required}
+				minLength={minLength}
+				autocomplete={autocomplete}
 			/>
 		</div>
 	)

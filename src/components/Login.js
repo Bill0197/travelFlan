@@ -10,10 +10,16 @@ import AuthContext from '../store/auth-context'
 
 const emailReducer = (state, action) => {
 	if (action.type === 'USER_INPUT') {
-		return { value: action.val, isValid: action.val.includes('@') }
+		return {
+			value: action.val,
+			isValid: action.val.includes('@') && action.val.includes('.'),
+		}
 	}
 	if (action.type === 'INPUT_BLUR') {
-		return { value: state.value, isValid: state.value.includes('@') }
+		return {
+			value: state.value,
+			isValid: state.value.includes('@') && state.value.includes('.'),
+		}
 	}
 	return { value: '', isValid: false }
 }
@@ -40,6 +46,7 @@ const Login = props => {
 		value: '',
 		isValid: null,
 	})
+
 	const { isValid: emailIsValid } = emailState
 	const { isValid: passwordIsValid } = passwordState
 
@@ -50,6 +57,7 @@ const Login = props => {
 		const time = setTimeout(() => {
 			setFormIsValid(emailState.isValid && passwordState.isValid)
 		}, 500)
+
 		return () => {
 			clearTimeout(time)
 		}
@@ -85,9 +93,9 @@ const Login = props => {
 
 	return (
 		<div className="login">
-			<div class="login-page">
-				<div class="form">
-					<form class="login-form" onSubmit={submitHandler}>
+			<div>
+				<div className="form">
+					<form onSubmit={submitHandler}>
 						<Input
 							ref={emailInputRef}
 							id="email"
@@ -98,10 +106,16 @@ const Login = props => {
 							onChange={emailChangeHandler}
 							onBlur={validateEmailHandler}
 							placeholder="Your Email"
+							required={true}
+							autocomplete="username"
 						/>
+						<p>{!emailState.isValid && 'Email is not Valid'}</p>
+
 						<Input
 							placeholder="Your Email"
+							required={true}
 							ref={passwordInputRef}
+							minLength="8"
 							id="password"
 							label="Password"
 							type="password"
@@ -109,7 +123,13 @@ const Login = props => {
 							value={passwordState.value}
 							onChange={passwordChangeHandler}
 							onBlur={validatePasswordHandler}
+							autocomplete="password"
 						/>
+
+						<p>
+							{!passwordState.isValid &&
+								'Password must be more than 8 characters'}
+						</p>
 						<button type="submit" className="btn">
 							Login
 						</button>

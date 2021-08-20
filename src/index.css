@@ -20,6 +20,7 @@ body {
 }
 
 .form, .home {
+  position: relative;
   padding: 45px;
   width: 40vw;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -38,6 +39,12 @@ body {
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+}
+
+.form p {
+  color: rgb(196, 52, 52);
+  font-size: 14px;
+  text-align: center;
 }
 
 /* end of login */
