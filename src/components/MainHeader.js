@@ -4,7 +4,7 @@ import Navigation from './Navigation'
 const MainHeader = props => {
 	return (
 		<header className="main-header">
-			<h1>A Typical Page</h1>
+			<h1>Travel Flan</h1>
 			<Navigation />
 		</header>
 	)

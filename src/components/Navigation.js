@@ -8,12 +8,12 @@ const Navigation = () => {
 			<ul>
 				{context.isLoggedIn && (
 					<li>
-						<a href="/">Users</a>
+						<a href="/albums">Albums</a>
 					</li>
 				)}
 				{context.isLoggedIn && (
 					<li>
-						<a href="/">Admin</a>
+						<a href="/admin">Admin</a>
 					</li>
 				)}
 				{context.isLoggedIn && (
