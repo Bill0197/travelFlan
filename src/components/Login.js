@@ -85,35 +85,37 @@ const Login = props => {
 
 	return (
 		<div className="login">
-			<form onSubmit={submitHandler}>
-				<input
-					ref={emailInputRef}
-					id="email"
-					label="E-Mail"
-					type="email"
-					isValid={emailIsValid}
-					value={emailState.value}
-					onChange={emailChangeHandler}
-					onBlur={validateEmailHandler}
-				/>
-				<input
-					ref={passwordInputRef}
-					id="password"
-					label="Password"
-					type="password"
-					isValid={passwordIsValid}
-					value={passwordState.value}
-					onChange={passwordChangeHandler}
-					onBlur={validatePasswordHandler}
-				/>
-
-				<div className="actions">
-					{console.log(formIsValid)}
-					<button type="submit" className="btn">
-						Login
-					</button>
+			<div class="login-page">
+				<div class="form">
+					<form class="login-form" onSubmit={submitHandler}>
+						<input
+							ref={emailInputRef}
+							id="email"
+							label="E-Mail"
+							type="email"
+							isValid={emailIsValid}
+							value={emailState.value}
+							onChange={emailChangeHandler}
+							onBlur={validateEmailHandler}
+							placeholder="Your Email"
+						/>
+						<input
+							placeholder="Your Password"
+							ref={passwordInputRef}
+							id="password"
+							label="Password"
+							type="password"
+							isValid={passwordIsValid}
+							value={passwordState.value}
+							onChange={passwordChangeHandler}
+							onBlur={validatePasswordHandler}
+						/>
+						<button type="submit" className="btn">
+							Login
+						</button>
+					</form>
 				</div>
-			</form>
+			</div>
 		</div>
 	)
 }
