@@ -5,7 +5,7 @@ import React, {
 	useRef,
 	useContext,
 } from 'react'
-
+import Input from './UI/Input/Input'
 import AuthContext from '../store/auth-context'
 
 const emailReducer = (state, action) => {
@@ -88,7 +88,7 @@ const Login = props => {
 			<div class="login-page">
 				<div class="form">
 					<form class="login-form" onSubmit={submitHandler}>
-						<input
+						<Input
 							ref={emailInputRef}
 							id="email"
 							label="E-Mail"
@@ -99,8 +99,8 @@ const Login = props => {
 							onBlur={validateEmailHandler}
 							placeholder="Your Email"
 						/>
-						<input
-							placeholder="Your Password"
+						<Input
+							placeholder="Your Email"
 							ref={passwordInputRef}
 							id="password"
 							label="Password"
