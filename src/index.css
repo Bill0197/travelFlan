@@ -19,14 +19,13 @@ body {
   margin: auto;
 }
 
-.form {
+.form, .home {
   padding: 45px;
   width: 40vw;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-
 }
 
-.form button {
+.form button, .home button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -41,15 +40,13 @@ body {
   cursor: pointer;
 }
 
-
-
 /* end of login */
 
 .home {
   width: 90%;
   max-width: 40rem;
   padding: 3rem;
-  margin: 2rem auto;
+  margin: 4rem auto;
   text-align: center;
 }
 
