@@ -113,7 +113,11 @@ const Login = props => {
 							required={true}
 							autoComplete="username"
 						/>
-						<p>{!emailState.isValid && 'Email is not Valid'}</p>
+						<p>
+							{!emailState.isValid &&
+								emailState.value !== '' &&
+								'Email is not Valid'}
+						</p>
 
 						<Input
 							placeholder="Your Email"
@@ -132,6 +136,7 @@ const Login = props => {
 
 						<p>
 							{!passwordState.isValid &&
+								passwordState.value !== '' &&
 								'Password must be more than 8 characters'}
 						</p>
 						<button type="submit" className="btn">
