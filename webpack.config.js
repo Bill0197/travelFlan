@@ -2,9 +2,10 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+	mode: 'development',
 	entry: path.join(__dirname, 'src', 'index.js'),
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, 'build'),
 	},
 	module: {
 		rules: [
@@ -19,12 +20,13 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.css$/i,
-				use: ['style-loader', 'css-loader'],
+				test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+				exclude: /node_modules/,
+				use: ['file-loader?name=[name].[ext]'],
 			},
 			{
-				test: /\.(png|jp(e*)g|svg|gif)$/,
-				use: ['file-loader'],
+				test: /\.css$/i,
+				use: ['style-loader', 'css-loader'],
 			},
 			{
 				test: /\.svg$/,
@@ -34,7 +36,9 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.join(__dirname, 'src', 'index.html'),
+			template: './public/index.html',
+			filename: './index.html',
+			favicon: './public/favicon.ico',
 		}),
 	],
 }
