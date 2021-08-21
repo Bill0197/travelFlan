@@ -2,11 +2,17 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-	mode: 'development',
-	entry: path.join(__dirname, 'src', 'index.js'),
-	output: {
-		path: path.resolve(__dirname, 'build'),
+	devServer: {
+		historyApiFallback: true,
 	},
+	output: {
+		filename: 'main.js',
+		path: path.resolve(__dirname, 'static'),
+		publicPath: '/',
+	},
+	mode: 'development',
+	entry: './src/index.js',
+
 	module: {
 		rules: [
 			{

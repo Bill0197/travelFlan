@@ -11,7 +11,7 @@ export default function Routes() {
 	if (context.isLoggedIn) {
 		return (
 			<Switch>
-				<Route path="/">
+				<Route path="/" exact>
 					<Home />
 				</Route>
 
@@ -19,7 +19,7 @@ export default function Routes() {
 					<Albums />
 				</Route>
 
-				<Redirect to="/" />
+				{/* <Redirect to="/" /> */}
 			</Switch>
 		)
 	}

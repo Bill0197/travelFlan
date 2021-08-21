@@ -1,9 +1,12 @@
 import React from 'react'
+import MainHeader from './MainHeader'
 
 export default function Albums() {
-  return (
-		<div>
-			<h1>albums</h1>
+	return (
+		<div className="home">
+			<h1>Albums page!</h1>
+
+			<MainHeader albums={true} />
 		</div>
 	)
 }

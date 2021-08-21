@@ -1,7 +1,10 @@
 import React, { useContext } from 'react'
 import AuthContext from '../store/auth-context'
+import { Link } from 'react-router-dom'
 
-const Navigation = () => {
+const Navigation = props => {
+	const { home, albums } = props
+
 	const context = useContext(AuthContext)
 
 	return (
@@ -9,7 +12,8 @@ const Navigation = () => {
 			<ul>
 				{context.isLoggedIn && (
 					<li>
-						<a href="/albums">Albums</a>
+						{!albums && <Link to="/albums">Albums</Link>}
+						{!home && <Link to="/">Home</Link>}
 					</li>
 				)}
 

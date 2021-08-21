@@ -7,7 +7,7 @@ const Home = () => {
 	return (
 		<div className="home">
 			<h1>Welcome back to Travel Flan!</h1>
-			<MainHeader />
+			<MainHeader home={true} />
 			<button onClick={ctx.onLogout}>LogOut</button>
 		</div>
 	)
