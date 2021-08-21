@@ -16,7 +16,7 @@ const Input = React.forwardRef((props, ref) => {
 
 	const {
 		type,
-		autocomplete,
+		autoComplete,
 		id,
 		value,
 		onBlur,
@@ -41,7 +41,7 @@ const Input = React.forwardRef((props, ref) => {
 				onBlur={onBlur}
 				required={required}
 				minLength={minLength}
-				autocomplete={autocomplete}
+				autoComplete={autoComplete}
 			/>
 		</div>
 	)

@@ -2,17 +2,35 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import AuthContext from './store/auth-context'
 import Home from './components/Home'
+import Albums from './components/Albums'
 import Login from './components/Login'
 
 export default function Routes() {
 	const context = useContext(AuthContext)
 
-	console.log(context, 'ctnx')
+	if (context.isLoggedIn) {
+		return (
+			<Switch>
+				<Route path="/">
+					<Home />
+				</Route>
+
+				<Route path="/albums" exact>
+					<Albums />
+				</Route>
+
+				<Redirect to="/" />
+			</Switch>
+		)
+	}
 
 	return (
-		<div>
-			{!context.isLoggedIn && <Login />}
-			{context.isLoggedIn && <Home />}
-		</div>
+		<Switch>
+			<Route path="/">
+				<Login />
+			</Route>
+
+			<Redirect to="/" />
+		</Switch>
 	)
 }

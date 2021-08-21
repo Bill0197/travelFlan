@@ -109,7 +109,7 @@ const Login = props => {
 							onBlur={validateEmailHandler}
 							placeholder="Your Email"
 							required={true}
-							autocomplete="username"
+							autoComplete="username"
 						/>
 						<p>{!emailState.isValid && 'Email is not Valid'}</p>
 
@@ -125,7 +125,7 @@ const Login = props => {
 							value={passwordState.value}
 							onChange={passwordChangeHandler}
 							onBlur={validatePasswordHandler}
-							autocomplete="password"
+							autoComplete="password"
 						/>
 
 						<p>
