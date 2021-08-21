@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "test": "react-scripts test",
+    "test": "jest --runInBand --detectOpenHandles --forceExit",
     "eject": "react-scripts eject",
     "dev": "webpack serve",
     "build": "webpack"
@@ -46,6 +46,7 @@
     "babel-loader": "^8.2.2",
     "html-webpack-plugin": "^4.4.0",
     "webpack": "^4.40.2",
-    "webpack-dev-server": "^4.0.0"
+    "webpack-dev-server": "^4.0.0",
+     "jest-puppeteer": "^5.0.4"
   }
 }
