@@ -7,6 +7,7 @@ import React, {
 } from 'react'
 import Input from './UI/Input/Input'
 import AuthContext from '../store/auth-context'
+import MainHeader from './MainHeader'
 
 const emailReducer = (state, action) => {
 	if (action.type === 'USER_INPUT') {
@@ -95,6 +96,7 @@ const Login = props => {
 
 	return (
 		<div className="login">
+			<MainHeader />
 			<div>
 				<div className="form">
 					<form onSubmit={submitHandler}>
