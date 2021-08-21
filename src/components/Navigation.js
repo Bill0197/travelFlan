@@ -3,6 +3,7 @@ import AuthContext from '../store/auth-context'
 
 const Navigation = () => {
 	const context = useContext(AuthContext)
+
 	return (
 		<nav className="nav">
 			<ul>
