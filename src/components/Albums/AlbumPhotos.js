@@ -27,7 +27,7 @@ export default function AlbumPhotos() {
 		}
 
 		getAlbumData()
-	}, [])
+	}, [id])
 
 	const goBack = () => {
 		history.goBack()
@@ -72,7 +72,7 @@ export default function AlbumPhotos() {
 						update={updateTitle}
 					/>
 					<button className="backButton kb-btn kb-btn-4" onClick={goBack}>
-						back to albums
+						&lt; to albums
 					</button>
 
 					<h1> {title || photos[0]?.title}</h1>
