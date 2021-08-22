@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallBack } from 'react'
 import { getAlbums } from '../../services/httpService'
 import MainHeader from '../MainHeader'
 import Spinner from '../UI/Spinner'
@@ -29,6 +29,16 @@ export default function Albums() {
 		getAlbumsData()
 	}, [paginate])
 
+	async function getAlbumsDataWithoutLoading(paginate) {
+		try {
+			const res = await getAlbums(paginate || 0)
+
+			setAlbums(res?.data)
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
 	const goBack = () => {
 		history.goBack()
 	}
@@ -56,7 +66,7 @@ export default function Albums() {
 
 				<MainHeader albums={true} />
 
-				<button className="kb-btn kb-btn-1" onClick={goBack}>
+				<button className="kb-btn kb-btn-4" onClick={goBack}>
 					back to home
 				</button>
 
@@ -76,7 +86,14 @@ export default function Albums() {
 						<div id="albumsContainer">
 							<div className="albums" style={{ margin: '-1px auto 12px auto' }}>
 								{albums.map(al => (
-									<Album al={al} />
+									<Album
+										key={al.id}
+										al={al}
+										setAlbums={setAlbums}
+										getAlbums={getAlbums}
+										getAlbumsDataWithoutLoading={getAlbumsDataWithoutLoading}
+										albumsLength={albums.length}
+									/>
 								))}
 							</div>
 							<div id="pagination">
@@ -90,7 +107,7 @@ export default function Albums() {
 								<button
 									onClick={prev}
 									disabled={paginate === 0}
-									className="kb-btn kb-btn-1"
+									className="kb-btn kb-btn-2"
 								>
 									Previous
 								</button>

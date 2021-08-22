@@ -59,3 +59,15 @@ export const updateAlbum = async ({ id, title }) => {
 		throw err
 	}
 }
+
+export const deleteAlbumData = async id => {
+	try {
+		let res = await axios.delete(
+			`https://jsonplaceholder.typicode.com/albums/${id}`
+		)
+
+		return res
+	} catch (err) {
+		throw err
+	}
+}
