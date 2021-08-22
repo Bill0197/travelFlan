@@ -5,6 +5,7 @@
   max-width: 40rem;
   margin: 8rem auto;
   padding: 2rem;
+  border-radius: 12px;
 }
 
 .form {
@@ -12,21 +13,12 @@
   padding: 45px;
   width: 40vw;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin: auto;
+  border-radius: 12px;
 }
 
 .form button, .home button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: #4CAF50;
   width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
 }
 
 .form p {
@@ -35,20 +27,101 @@
   text-align: center;
 }
 
+@media only screen and (max-width: 900px) {
+  .form {
+    padding: 25px;
+    width: 80vw;
+  }
+  .login {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    padding: 25px;
+    width: 90vw;
+  }
+}
+
 /* end of form */
 
 /* start of login */
 
-.home {
+/* start of home and albums */
+
+#albumsContainer {
+  width: 100%;
+  margin: 12px auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 12px;
+}
+
+.home, .albums {
   width: 90%;
   max-width: 40rem;
   padding: 3rem;
   margin: 8rem auto;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 12px;
 }
 
-/* end of home */
+.albums {
+  width: 85vw;
+  max-width: 85vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 12px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.0002);
+  border-radius: 12px;
+}
+
+.album {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms linear;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.album:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.albumPicture {
+  width: auto;
+  height: 50vh;
+  border-radius: 14px;
+}
+
+#pagination {
+  text-align: end;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 0 20px 20px 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .albumPicture {
+    height: 70vw;
+  }
+  .albums {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+/* end of home and albums  */
 
 /* start of actions styles */
 
@@ -71,6 +144,7 @@
   align-items: center;
   background: #191188;
   padding: 0 2rem;
+  z-index: 100;
 }
 
 .main-header h1 {
@@ -124,3 +198,242 @@
 }
 
 /* end of nav */
+
+/* back button */
+
+.backButton {
+  font-size: 18px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+/* button families */
+
+.kb-btn {
+  padding: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  width: 180px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+}
+
+.kb-btn:disabled {
+  cursor: not-allowed;
+}
+
+.kb-btn:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.kb-btn-round {
+  border-radius: 25px;
+}
+
+.kb-btn-1 {
+  background-image: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%)
+}
+
+.kb-btn-1:hover {
+  background-position: right center;
+}
+
+.kb-btn-2 {
+  background-image: linear-gradient(to right, #2BC0E4 0%, #EAECC6 51%, #2BC0E4 100%)
+}
+
+.kb-btn-2:hover {
+  background-position: right center;
+}
+
+.kb-btn-3 {
+  background-image: linear-gradient(to right, #7474BF 0%, #348AC7 51%, #7474BF 100%)
+}
+
+.kb-btn-3:hover {
+  background-position: right center;
+}
+
+.kb-btn-4 {
+  background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)
+}
+
+.kb-btn-4:hover {
+  background-position: right center;
+}
+
+/*end of button families */
+
+/* start of modal form */
+
+#modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5)
+}
+
+.sign-up-modal p, .sign-up-modal .form-checkbox label {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.sign-up-modal .form-checkbox label {
+  cursor: pointer;
+}
+
+.logo {
+  fill: #FEFEFE;
+}
+
+.logo-container {
+  width: 100%;
+  margin-top: 50px;
+  position: relative;
+  text-align: center;
+}
+
+.sign-up-modal {
+  font-family: "Roboto", arial, sans-serif;
+  color: #fefefe;
+  border-style: solid;
+  border-width: 10px;
+  border-color: rgb(254, 254, 254);
+  border-radius: 10px 10px 10px 10px;
+  background-image: -moz-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
+  background-image: -webkit-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
+  background-image: -ms-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
+  width: 90%;
+  min-width: 400px;
+  max-width: 700px;
+  margin: 25vh auto;
+  padding: 25px;
+}
+
+.sign-up-modal form {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sign-up-modal input::-webkit-input-placeholder {
+  color: #fefefe;
+  opacity: 1;
+}
+
+.sign-up-modal input:focus::-webkit-input-placeholder {
+  color: #111;
+  opacity: .5;
+  transition: all 0.3s ease;
+}
+
+.sign-up-modal .input-container {
+  margin: 10px auto;
+}
+
+.sign-up-modal input[type="text"], .sign-up-modal input[type="submit"]:focus {
+  outline: 0;
+}
+
+.sign-up-modal input[type="text"], .sign-up-modal input[type="password"] {
+  font-weight: 700;
+  font-size: 1.4em;
+  padding: 10px;
+  border-width: 2px;
+  border-color: rgba(247, 247, 247, .3);
+  border-style: solid;
+  background: transparent;
+  width: 100%;
+  margin: auto !important;
+}
+
+.sign-up-modal input[type="text"]:focus {
+  background: white;
+  transition: all 0.3s ease;
+  color: #222;
+}
+
+.sign-up-modal a {
+  color: #fefefe;
+  text-decoration: underline;
+}
+
+.sign-up-modal a:hover {
+  color: #d26960;
+}
+
+.sign-up-modal input[type="submit"] {
+  font-weight: 700;
+  font-size: 1.4em;
+  padding: 10px;
+  color: #111;
+  background: #fefefe;
+  box-shadow: 0px 4px 0px 0px #d26a60;
+  border-style: none;
+  padding: 10px;
+  position: relative;
+  display: inline-block;
+  transition: all .1s linear;
+  cursor: pointer;
+  width: 100%;
+  margin: auto !important;
+}
+
+.sign-up-modal input[type="submit"]:active {
+  box-shadow: 0 2px 0 #d26a60;
+  transform: translateY(3px);
+  -webkit-transform: translateY(3px);
+  -ms-transform: translateY(3px);
+}
+
+.sign-up-modal #close-modal-button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #d26960;
+  float: right;
+  position: relative;
+  top: -55px;
+  left: 50px;
+  cursor: pointer;
+}
+
+.sign-up-modal #close-modal-button:before {
+  content: '\2716';
+  font-size: 1.5em;
+  position: relative;
+  top: 10px;
+  left: 17px;
+}
+
+@media only screen and (min-width: 768px) {
+  .sign-up-modal .body-input {
+    width: 47.5%;
+  }
+  .sign-up-modal .title-input {
+    margin-bottom: 20px;
+    margin-top: 50px;
+  }
+  .sign-up-modal form {
+    width: 70%;
+  }
+}
+
+/* end of modal form */
+
+.w-full {
+  width: 100% !important;
+}
+
+a {
+  text-decoration: none !important;
+}

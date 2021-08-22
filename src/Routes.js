@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import AuthContext from './store/auth-context'
 import Home from './components/Home'
-import Albums from './components/Albums'
+import Albums from './components/Albums/Albums'
 import Login from './components/Login'
+import AlbumPhotos from './components/Albums/AlbumPhotos'
 
 export default function Routes() {
 	const context = useContext(AuthContext)
@@ -19,7 +20,11 @@ export default function Routes() {
 					<Albums />
 				</Route>
 
-				{/* <Redirect to="/" /> */}
+				<Route path="/albums/:id/photos" exact>
+					<AlbumPhotos />
+				</Route>
+
+				<Redirect to="/" />
 			</Switch>
 		)
 	}

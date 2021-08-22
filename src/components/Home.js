@@ -1,14 +1,16 @@
-import React, { useContext } from 'react'
-import AuthContext from '../store/auth-context'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import MainHeader from './MainHeader'
 
 const Home = () => {
-	const ctx = useContext(AuthContext)
 	return (
 		<div className="home">
 			<h1>Welcome back to Travel Flan!</h1>
 			<MainHeader home={true} />
-			<button onClick={ctx.onLogout}>LogOut</button>
+
+			<Link to="/albums">
+				<button className="kb-btn kb-btn-4">Explore</button>
+			</Link>
 		</div>
 	)
 }

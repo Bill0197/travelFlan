@@ -8,36 +8,10 @@ import React, {
 import Input from './UI/Input/Input'
 import AuthContext from '../store/auth-context'
 import MainHeader from './MainHeader'
+import { passwordReducer } from '../reducers/passwordReducer'
+import { emailReducer } from '../reducers/emailReducer'
 
-const emailReducer = (state, action) => {
-	if (action.type === 'USER_INPUT') {
-		return {
-			value: action.val,
-			isValid: action.val.includes('@') && action.val.includes('.'),
-		}
-	}
-	if (action.type === 'INPUT_BLUR') {
-		return {
-			value: state.value,
-			isValid: state.value.includes('@') && state.value.includes('.'),
-		}
-	}
-	return { value: '', isValid: false }
-}
-
-const passwordReducer = (state, action) => {
-	if (action.type === 'USER_INPUT') {
-		return { value: action.val, isValid: action.val.trim().length > 7 }
-	}
-
-	if (action.type === 'INPUT_BLUR') {
-		return { value: state.value, isValid: state.value.trim().length > 7 }
-	}
-
-	return { value: '', isValid: false }
-}
-
-const Login = props => {
+const Login = () => {
 	const ctx = useContext(AuthContext)
 	const [formIsValid, setFormIsValid] = useState(false)
 
@@ -109,9 +83,8 @@ const Login = props => {
 							value={emailState.value}
 							onChange={emailChangeHandler}
 							onBlur={validateEmailHandler}
-							placeholder="Your Email"
 							required={true}
-							autoComplete="username"
+							autoComplete="email"
 						/>
 						<p>
 							{!emailState.isValid &&
@@ -120,7 +93,6 @@ const Login = props => {
 						</p>
 
 						<Input
-							placeholder="Your Email"
 							required={true}
 							ref={passwordInputRef}
 							minLength="8"
@@ -139,7 +111,7 @@ const Login = props => {
 								passwordState.value !== '' &&
 								'Password must be more than 8 characters'}
 						</p>
-						<button type="submit" className="btn">
+						<button type="submit" className="kb-btn kb-btn-4">
 							Login
 						</button>
 					</form>

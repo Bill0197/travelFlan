@@ -11,8 +11,7 @@ module.exports = {
 		publicPath: '/',
 	},
 	mode: 'development',
-	entry: './src/index.js',
-
+	entry: ['babel-polyfill', './src/index.js'],
 	module: {
 		rules: [
 			{
@@ -42,9 +41,9 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: './public/index.html',
+			template: './static/index.html',
 			filename: './index.html',
-			favicon: './public/favicon.ico',
+			favicon: './static/favicon.ico',
 		}),
 	],
 }
