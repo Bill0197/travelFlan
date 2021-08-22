@@ -57,7 +57,9 @@
 
 /* start of login */
 
-.home {
+/* start of home and albums */
+
+.home, .albums {
   width: 90%;
   max-width: 40rem;
   padding: 3rem;
@@ -66,7 +68,20 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-/* end of home */
+.albums {
+  width: 95vw;
+  max-width: 95vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 12px;
+}
+
+.album {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 12px 20px;
+}
+
+/* end of home and albums  */
 
 /* start of actions styles */
 
