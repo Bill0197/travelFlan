@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import AuthContext from './store/auth-context'
 import Home from './components/Home'
-import Albums from './components/Albums'
+import Albums from './components/Albums/Albums'
 import Login from './components/Login'
 
 export default function Routes() {
@@ -19,7 +19,7 @@ export default function Routes() {
 					<Albums />
 				</Route>
 
-				{/* <Redirect to="/" /> */}
+				<Redirect to="/" />
 			</Switch>
 		)
 	}
