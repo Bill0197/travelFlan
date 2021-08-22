@@ -1,25 +1,83 @@
 describe('Travel Flan', () => {
+	const clearInput = async () => {
+		await page.keyboard.down('Control')
+		await page.keyboard.down('A')
+		await page.keyboard.up('Control')
+		await page.keyboard.press('Backspace')
+	}
+
 	beforeAll(async () => {
-		await page.setViewport({ width: 1366, height: 768 })
 		await page.goto('http://localhost:8080/')
 	}, 90000)
 
 	it('should be titled "Travel Flan"', async () => {
-		await expect(page.title()).resolves.toMatch('>Travel Flan')
+		await expect(page.title()).resolves.toMatch('Travel Flan')
 	}, 2000)
 
 	it('should be Logged in', async () => {
 		await page.waitForTimeout(2000)
-
 		await page.type('input[type="email"]', 'khabibullosaydullaev@gmail.com')
-		await page.type('input[type="password"]', '1111234232')
 
-		await page.keyboard.press('Tab')
-		await page.keyboard.press('Enter')
+		await page.type('input[type="password"]', '1111234232')
+		await page.waitForTimeout(1000)
+
+		await page.click('button')
+		await page.waitForTimeout(3000)
+		const text = await page.$('h1')
+
+		await expect(text).toMatch('Welcome back to Travel Flan!')
+	}, 90000)
+
+	it('should should log out', async () => {
+		await page.waitForTimeout(1000)
+		await page.click('button')
 
 		await page.waitForTimeout(2000)
-		const text = await page.$('a')
+		const emailInput = await page.$('input[type="email"]')
+		const passwordInput = await page.$('input[type="password"]')
 
-		await expect(text).toMatch('Albums')
+		await expect(emailInput).toBeTruthy()
+		await expect(passwordInput).toBeTruthy()
+	}, 90000)
+
+	it('should not be Logged in as not valid email', async () => {
+		await page.waitForTimeout(2000)
+		await page.type('input[type="email"]', 'khabibullosaydullaevgmail.com')
+
+		await page.type('input[type="password"]', '114233232')
+		await page.waitForTimeout(1000)
+
+		await page.click('button')
+		await page.waitForTimeout(3000)
+
+		const emailInput = await page.$('input[type="email"]')
+		const passwordInput = await page.$('input[type="password"]')
+
+		await expect(emailInput).toBeTruthy()
+		await expect(passwordInput).toBeTruthy()
+	}, 90000)
+
+	it('should not be Logged in as not valid password', async () => {
+		await page.waitForTimeout(2000)
+		await page.click('input[type="email"]')
+
+		await clearInput()
+		await page.type('input[type="email"]', 'khabibullosaydullaev@gmail.com')
+
+		await page.click('input[type="password"]')
+		// await clearInput()
+		await page.evaluate(() => (document.getElementById('password').value = ''))
+
+		await page.type('input[type="password"]', '1143412')
+		await page.waitForTimeout(1000)
+
+		await page.click('button')
+		await page.waitForTimeout(3000)
+
+		const emailInput = await page.$('input[type="email"]')
+		const passwordInput = await page.$('input[type="password"]')
+
+		await expect(emailInput).toBeTruthy()
+		await expect(passwordInput).toBeTruthy()
 	}, 90000)
 })
