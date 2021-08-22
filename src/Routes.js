@@ -20,7 +20,7 @@ export default function Routes() {
 					<Albums />
 				</Route>
 
-				<Route path="/albums/photos/:id" exact>
+				<Route path="/albums/:id/photos" exact>
 					<AlbumPhotos />
 				</Route>
 

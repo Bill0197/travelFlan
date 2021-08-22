@@ -11,3 +11,15 @@ export const getAlbums = async () => {
 		throw err
 	}
 }
+
+export const getAlbumPhotos = async id => {
+	try {
+		let res = await axios.get(
+			`https://jsonplaceholder.typicode.com/albums/${id}/photos`
+		)
+
+		return res
+	} catch (err) {
+		throw err
+	}
+}

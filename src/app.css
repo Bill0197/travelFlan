@@ -79,6 +79,29 @@
 .album {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   padding: 12px 20px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.albumPicture {
+  width: 40vw;
+  height: auto;
+}
+
+@media only screen and (max-width: 900px) {
+  .albumPicture {
+    width: 80vw;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .albumPicture {
+    width: 90vw;
+    height: auto;
+  }
 }
 
 /* end of home and albums  */

@@ -31,7 +31,9 @@ export default function Albums() {
 				<MainHeader albums={true} />
 
 				{loading ? (
-					<Spinner size="large" />
+					<div style={{ marginTop: '30vh' }}>
+						<Spinner size="large" />
+					</div>
 				) : (
 					<div className="albums">
 						{albums.map(al => (

@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Album(props) {
-	const { id, title, userId } = props.al
+	const { id, title } = props.al
 
 	return (
-		<Link to='/albums/photos/1'>
+		<Link to={`/albums/${id}/photos`}>
 			<div className="album">
-				<h1>Each Albums</h1>
+				<h1>{title}</h1>
 			</div>
 		</Link>
 	)
