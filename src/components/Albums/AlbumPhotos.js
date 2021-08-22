@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react'
 import MainHeader from '../MainHeader'
 import Spinner from '../UI/Spinner'
 import { useParams, useHistory } from 'react-router-dom'
-import { getAlbumPhotos } from '../../services/httpService'
+import { getAlbumPhotos, updateAlbum } from '../../services/httpService'
+import CreateModal from './CreateModal'
 
 export default function AlbumPhotos() {
 	const [loading, setLoading] = useState(false)
 	const [photos, setPhotos] = useState([])
 	const { id } = useParams()
 	const history = useHistory()
+	const [open, setOpen] = useState(false)
+	const [title, setTitle] = useState('')
 
 	useEffect(() => {
 		async function getAlbumData() {
@@ -24,10 +27,30 @@ export default function AlbumPhotos() {
 		}
 
 		getAlbumData()
-	}, [id])
+	}, [])
 
 	const goBack = () => {
 		history.goBack()
+	}
+
+	const updateTitle = async (title, e) => {
+		e.preventDefault()
+
+		try {
+			let res = await updateAlbum({ id, title })
+
+			if (res?.title) {
+				setTitle(title)
+				alert('Updated Your Title!')
+
+				return setOpen(false)
+			}
+			alert('Something Went Wrong!')
+
+			return setOpen(false)
+		} catch (err) {
+			console.log(err)
+		}
 	}
 
 	return (
@@ -38,12 +61,21 @@ export default function AlbumPhotos() {
 					<Spinner size="large" />
 				</div>
 			) : (
-				<div className="albums" style={{ gridTemplateColumns: 'auto' }}>
+				<div
+					className="albums"
+					style={{ gridTemplateColumns: 'auto', marginTop: '5vh' }}
+				>
+					<CreateModal
+						setOpen={setOpen}
+						open={open}
+						type="update"
+						update={updateTitle}
+					/>
 					<button className="backButton kb-btn kb-btn-4" onClick={goBack}>
 						back to albums
 					</button>
 
-					<h1>{photos[0]?.title}</h1>
+					<h1> {title || photos[0]?.title}</h1>
 					<div>
 						<img
 							src={photos[0]?.url}
@@ -51,6 +83,12 @@ export default function AlbumPhotos() {
 							className="albumPicture"
 						/>
 					</div>
+					<button
+						className="backButton kb-btn kb-btn-4"
+						onClick={() => setOpen(true)}
+					>
+						edit title
+					</button>
 				</div>
 			)}
 		</div>

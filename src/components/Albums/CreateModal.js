@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createAlbum } from '../../services/httpService'
 
-export default function CreateModal({ setOpen, open }) {
+export default function CreateModal({ setOpen, open, update, type }) {
 	const [state, setState] = useState({
 		title: '',
 		body: '',
@@ -16,7 +16,9 @@ export default function CreateModal({ setOpen, open }) {
 		})
 	}
 
-	const create = async () => {
+	const create = async e => {
+		e.preventDefault()
+
 		try {
 			let res = await createAlbum(state)
 
@@ -58,25 +60,30 @@ export default function CreateModal({ setOpen, open }) {
 							value={state.tile}
 						/>
 					</div>
-					<div className="input-container">
-						<input
-							name="body"
-							className="col-sm-5 body-input with-placeholder"
-							type="text"
-							placeholder="Body"
-							onChange={changeHandler}
-							value={state.body}
-						/>
-					</div>
-
+					{type !== 'update' && (
+						<div className="input-container">
+							<input
+								name="body"
+								className="col-sm-5 body-input with-placeholder"
+								type="text"
+								placeholder="Body"
+								onChange={changeHandler}
+								value={state.body}
+							/>
+						</div>
+					)}
 					<button
 						className="kb-btn kb-btn-2 w-full"
-						disabled={state.tile === '' || state.body === ''}
+						disabled={
+							type !== 'update'
+								? state.tile === '' || state.body === ''
+								: state.title === ''
+						}
 						type="button"
 						value="Create"
-						onClick={create}
+						onClick={type !== 'update' ? create : e => update(state.title, e)}
 					>
-						Create
+						{type !== 'update' ? 'Create' : 'Update'}
 					</button>
 				</form>
 			</div>

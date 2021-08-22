@@ -38,3 +38,24 @@ export const createAlbum = async data => {
 		throw err
 	}
 }
+
+export const updateAlbum = async ({ id, title }) => {
+	try {
+		let res = await fetch(`https://jsonplaceholder.typicode.com/albums/${id}`, {
+			method: 'PATCH',
+			body: JSON.stringify({
+				title,
+			}),
+			headers: {
+				'Content-type': 'application/json; charset=UTF-8',
+			},
+		})
+			.then(response => response.json())
+			.then(data => data)
+			.catch(err => console.log(err))
+
+		return res
+	} catch (err) {
+		throw err
+	}
+}

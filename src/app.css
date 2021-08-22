@@ -84,8 +84,8 @@
 }
 
 .albumPicture {
-  width: 40vw;
-  height: auto;
+  width: auto;
+  height: 50vh;
 }
 
 #pagination {
@@ -97,8 +97,7 @@
 
 @media only screen and (max-width: 900px) {
   .albumPicture {
-    width: 70vw;
-    height: auto;
+    height: 70vw;
   }
   .albums {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
