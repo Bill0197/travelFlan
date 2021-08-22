@@ -69,8 +69,8 @@
 }
 
 .albums {
-  width: 95vw;
-  max-width: 95vw;
+  width: 85vw;
+  max-width: 85vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 12px;
@@ -92,14 +92,7 @@
 
 @media only screen and (max-width: 900px) {
   .albumPicture {
-    width: 80vw;
-    height: auto;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .albumPicture {
-    width: 90vw;
+    width: 70vw;
     height: auto;
   }
 }
@@ -127,6 +120,7 @@
   align-items: center;
   background: #191188;
   padding: 0 2rem;
+  z-index: 100;
 }
 
 .main-header h1 {
@@ -180,3 +174,15 @@
 }
 
 /* end of nav */
+
+/* back button */
+
+.backButton {
+  font-size: 24px;
+  color: rgb(10, 169, 180);
+  margin: 30px auto;
+  width: 200px;
+  cursor: pointer;
+}
+
+/*  */
