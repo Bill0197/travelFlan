@@ -9,7 +9,7 @@ const Home = () => {
 			<MainHeader home={true} />
 
 			<Link to="/albums">
-				<button className="kb-btn kb-btn-1">Explore</button>
+				<button className="kb-btn kb-btn-4">Explore</button>
 			</Link>
 		</div>
 	)

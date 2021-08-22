@@ -27,6 +27,19 @@ export default function Albums() {
 		}
 
 		getAlbumsData()
+	}, [])
+
+	useEffect(() => {
+		async function getAlbumsData() {
+			try {
+				const res = await getAlbums(paginate)
+				setAlbums(res?.data)
+			} catch (err) {
+				console.log(err)
+			}
+		}
+
+		getAlbumsData()
 	}, [paginate])
 
 	async function getAlbumsDataWithoutLoading(paginate) {

@@ -71,6 +71,7 @@ export default function CreateModal({
 							placeholder="Title"
 							onChange={changeHandler}
 							value={state.tile}
+							required={true}
 						/>
 					</div>
 					{type !== 'update' && (
@@ -82,6 +83,7 @@ export default function CreateModal({
 								placeholder="Body"
 								onChange={changeHandler}
 								value={state.body}
+								required={true}
 							/>
 						</div>
 					)}

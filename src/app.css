@@ -52,6 +52,7 @@
   width: 100%;
   margin: 12px auto;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 12px;
 }
 
 .home, .albums {
@@ -61,6 +62,7 @@
   margin: 8rem auto;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 12px;
 }
 
 .albums {
@@ -72,6 +74,7 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.0002);
+  border-radius: 12px;
 }
 
 .album {
@@ -84,6 +87,7 @@
   transition: all 200ms linear;
   flex-direction: column;
   gap: 12px;
+  border-radius: 12px;
 }
 
 .album:hover {
@@ -93,6 +97,7 @@
 .albumPicture {
   width: auto;
   height: 50vh;
+  border-radius: 14px;
 }
 
 #pagination {
@@ -100,6 +105,8 @@
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
+  gap: 4px;
+  padding: 0 20px 20px 0;
 }
 
 @media only screen and (max-width: 900px) {
@@ -208,8 +215,7 @@
   color: white;
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
-  min-width: 210px;
-  max-width: 230px;
+  width: 220px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
   cursor: pointer;

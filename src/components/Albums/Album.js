@@ -18,16 +18,14 @@ export default function Album(props) {
 				setAlbums(prev => {
 					return prev.filter(al => al.id !== id)
 				})
+				alert('Deleted Album!')
 
 				if (albumsLength === 1) {
 					return getAlbumsDataWithoutLoading(2)
 				}
-				getAlbumsDataWithoutLoading()
-
-				return alert('Deleted Album!')
+			} else {
+				alert('Something Went Wrong!')
 			}
-
-			alert('Something Went Wrong!')
 		} catch (err) {
 			console.log(err)
 		}
