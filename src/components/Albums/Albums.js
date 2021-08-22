@@ -111,6 +111,7 @@ export default function Albums() {
 							</div>
 							<div id="pagination">
 								<button
+									id="newAlbum"
 									onClick={() => setOpen(true)}
 									className="kb-btn kb-btn-3"
 								>
