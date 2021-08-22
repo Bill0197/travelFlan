@@ -111,7 +111,7 @@ const Login = () => {
 								passwordState.value !== '' &&
 								'Password must be more than 8 characters'}
 						</p>
-						<button type="submit" className="btn">
+						<button type="submit" className="kb-btn kb-btn-4">
 							Login
 						</button>
 					</form>

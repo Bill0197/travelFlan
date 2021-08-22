@@ -8,7 +8,9 @@ const Home = () => {
 		<div className="home">
 			<h1>Welcome back to Travel Flan!</h1>
 			<MainHeader home={true} />
-			<button onClick={ctx.onLogout}>LogOut</button>
+			<button className="kb-btn kb-btn-1" onClick={ctx.onLogout}>
+				LogOut
+			</button>
 		</div>
 	)
 }

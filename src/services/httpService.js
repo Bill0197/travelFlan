@@ -1,9 +1,11 @@
 import axios from 'axios'
 
-export const getAlbums = async () => {
+export const getAlbums = async paginate => {
 	try {
 		let res = await axios.get(
-			'https://jsonplaceholder.typicode.com/albums?_start=0&_limit=10'
+			`https://jsonplaceholder.typicode.com/albums?_start=${
+				paginate || 0
+			}&_limit=5`
 		)
 
 		return res

@@ -39,7 +39,7 @@ export default function AlbumPhotos() {
 				</div>
 			) : (
 				<div className="albums" style={{ gridTemplateColumns: 'auto' }}>
-					<button className="backButton" onClick={goBack}>
+					<button className="backButton kb-btn kb-btn-4" onClick={goBack}>
 						back to albums
 					</button>
 
