@@ -12,6 +12,7 @@
   padding: 45px;
   width: 40vw;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin: auto;
 }
 
 .form button, .home button {
@@ -33,6 +34,23 @@
   color: rgb(196, 52, 52);
   font-size: 14px;
   text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .form {
+    padding: 25px;
+    width: 80vw;
+  }
+  .login {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    padding: 25px;
+    width: 90vw;
+  }
 }
 
 /* end of form */

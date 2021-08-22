@@ -10,9 +10,17 @@ describe('Travel Flan', () => {
 		await page.goto('http://localhost:8080/')
 	}, 90000)
 
-	describe('Login', () => {
+	describe('Landing Page', () => {
 		it('should be titled "Travel Flan"', async () => {
 			await expect(page.title()).resolves.toMatch('Travel Flan')
+		}, 2000)
+	})
+
+	describe('Login', () => {
+		it('should have the Brand name "Travel Flan"', async () => {
+			const brandName = await page.$('h1')
+
+			await expect(brandName).toMatch('Travel Flan')
 		}, 2000)
 
 		it('should be Logged in', async () => {
@@ -24,9 +32,9 @@ describe('Travel Flan', () => {
 
 			await page.click('button')
 			await page.waitForTimeout(3000)
-			const text = await page.$('h1')
+			const headerText = await page.$('h1')
 
-			await expect(text).toMatch('Welcome back to Travel Flan!')
+			await expect(headerText).toMatch('Welcome back to Travel Flan!')
 		}, 90000)
 
 		it('should should log out', async () => {
