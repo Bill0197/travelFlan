@@ -25,3 +25,16 @@ export const getAlbumPhotos = async id => {
 		throw err
 	}
 }
+
+export const createAlbum = async data => {
+	try {
+		let res = await axios.post(`https://jsonplaceholder.typicode.com/albums`, {
+			...data,
+			id: Math.random() * 1.3424,
+		})
+
+		return res
+	} catch (err) {
+		throw err
+	}
+}

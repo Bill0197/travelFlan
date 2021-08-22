@@ -4,6 +4,7 @@ import MainHeader from '../MainHeader'
 import Spinner from '../UI/Spinner'
 import Album from './Album'
 import { useHistory } from 'react-router'
+import CreateModal from './CreateModal'
 
 export default function Albums() {
 	const [albums, setAlbums] = useState([])
@@ -44,14 +45,15 @@ export default function Albums() {
 		setPaginate(paginate + 1)
 	}
 
-	const create = () => {
-		console.log('create')
-	}
-
 	return (
 		<>
 			<div style={{ width: '90vw', margin: 'auto' }}>
-				<h1>Albums page!</h1>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+
 				<MainHeader albums={true} />
 
 				<button className="kb-btn kb-btn-1" onClick={goBack}>
@@ -64,53 +66,8 @@ export default function Albums() {
 					</div>
 				) : (
 					<>
-						<div id="modal" style={{ display: open ? 'block' : 'none' }}>
-							<div className="sign-up-modal">
-								<div
-									id="close-modal-button"
-									onClick={() => setOpen(false)}
-								></div>
+						<CreateModal setOpen={setOpen} open={open} />
 
-								<div className="logo-container">
-									<svg className="logo" width="94.4px" height="56px">
-										<g>
-											<polygon points="49.3,56 49.3,0 0,28 	" />
-											<path d="M53.7,3.6v46.3l40.7-23.2L53.7,3.6z M57.7,10.6l28.4,16.2L57.7,42.9V10.6z" />
-										</g>
-									</svg>
-								</div>
-
-								<form className="details">
-									<div className="input-container">
-										<input
-											className="col-sm-12 email-input with-placeholder"
-											id="email"
-											type="email"
-											placeholder="Email"
-										/>
-									</div>
-									<div className="input-container">
-										<input
-											className="col-sm-5 username-input with-placeholder"
-											id="username"
-											type="text"
-											placeholder="Username"
-											maxlength="8"
-										/>
-									</div>
-									<div className="input-container">
-										<input
-											className="col-sm-5 col-sm-push-2 password-input with-placeholder"
-											id="password"
-											type="password"
-											placeholder="Password"
-										/>
-									</div>
-
-									<input id="sign-up-button" type="submit" value="Create" />
-								</form>
-							</div>
-						</div>
 						<div id="albumsContainer">
 							<div className="albums" style={{ margin: '-1px auto 12px auto' }}>
 								{albums.map(al => (
