@@ -66,7 +66,12 @@ export default function Albums() {
 					</div>
 				) : (
 					<>
-						<CreateModal setOpen={setOpen} open={open} type="create" />
+						<CreateModal
+							setOpen={setOpen}
+							open={open}
+							type="create"
+							setAlbums={setAlbums}
+						/>
 
 						<div id="albumsContainer">
 							<div className="albums" style={{ margin: '-1px auto 12px auto' }}>

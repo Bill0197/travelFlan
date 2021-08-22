@@ -30,7 +30,7 @@ export const createAlbum = async data => {
 	try {
 		let res = await axios.post(`https://jsonplaceholder.typicode.com/albums`, {
 			...data,
-			id: Math.random() * 1.3424,
+			id: Math.floor(Math.random() * 100),
 		})
 
 		return res

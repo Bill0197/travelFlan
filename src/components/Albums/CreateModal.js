@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 import { createAlbum } from '../../services/httpService'
 
-export default function CreateModal({ setOpen, open, update, type }) {
+export default function CreateModal({
+	setOpen,
+	open,
+	update,
+	type,
+	setAlbums,
+}) {
 	const [state, setState] = useState({
 		title: '',
 		body: '',
+		id: Math.floor(Math.random() * 100),
 	})
 
 	const changeHandler = e => {
@@ -23,6 +30,12 @@ export default function CreateModal({ setOpen, open, update, type }) {
 			let res = await createAlbum(state)
 
 			if (res?.status === 201) {
+				setAlbums(prev => {
+					prev.splice(0, 1)
+
+					return [state, ...prev]
+				})
+
 				alert('Created Your Album!')
 
 				return setOpen(false)
